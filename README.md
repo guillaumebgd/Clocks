@@ -57,8 +57,9 @@ void my_clock_update(my_clock_t *my_clock);
 
 Redistributes the overflow of time stored in <code>seconds</code> and in <code>minutes</code>
 respectively to <code>minutes</code> and to <code>hours</code>.<br>
-The overflow of time describes above <code>60 seconds</code> or <code>60 minutes</code> as
-that amount of time can be stored into the higher storage.<br>
+
+The overflow of time describes the excess above <code>60 seconds</code> or <code>60 minutes</code>.<br>
+That amount of time can be stored into the higher storage variable.<br>
 
 ---
 
