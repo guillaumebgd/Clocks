@@ -15,6 +15,9 @@ my_clock_t *my_clock_create(void)
     if (!my_clock)
         return (NULL);
     (*my_clock) = (my_clock_t){0};
-    pthread_attr_init(&my_clock->thread_attr);
+    if (pthread_attr_init(&my_clock->thread_attr) != 0) {
+        free(my_clock);
+        return (NULL);
+    }
     return (my_clock);
 }

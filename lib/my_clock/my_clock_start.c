@@ -8,9 +8,12 @@
 #include <stdio.h>
 #include "my_clock.h"
 
-void my_clock_start(my_clock_t *my_clock)
+int my_clock_start(my_clock_t *my_clock)
 {
+    int error = 0;
+
     if (!my_clock)
-        return;
-    pthread_create(&(my_clock->assigned_thread), &(my_clock->thread_attr), __my_clock_counting, my_clock);
+        return (0);
+    return (pthread_create(&(my_clock->assigned_thread), &(my_clock->thread_attr),
+                            __my_clock_counting, my_clock) == 0);
 }

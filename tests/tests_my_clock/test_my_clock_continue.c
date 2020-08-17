@@ -14,7 +14,7 @@ Test(my_clock_continue, easy_continue)
     int offset = 0;
 
     cr_assert_neq(clock, NULL);
-    my_clock_start(clock);
+    cr_expect(my_clock_start(clock));
     offset += sleep(3);
     my_clock_stop(clock);
     sleep(3);
@@ -32,7 +32,7 @@ Test(my_clock_continue, null_given)
     int offset = 0;
 
     cr_assert_neq(clock, NULL);
-    my_clock_start(clock);
+    cr_expect(my_clock_start(clock));
     offset += sleep(3);
     my_clock_stop(clock);
     sleep(3);

@@ -14,7 +14,7 @@ Test(my_clock_restart, simple_restart)
     int offset = 0;
 
     cr_assert_neq(clock, NULL);
-    my_clock_start(clock);
+    cr_expect(my_clock_start(clock));
     sleep(3);
     my_clock_restart(clock);
     offset += sleep(2);
@@ -30,7 +30,7 @@ Test(my_clock_restart, null_given)
     int offset = 0;
 
     cr_assert_neq(clock, NULL);
-    my_clock_start(clock);
+    cr_expect(my_clock_start(clock));
     sleep(3);
     my_clock_restart(NULL);
     offset += sleep(2);

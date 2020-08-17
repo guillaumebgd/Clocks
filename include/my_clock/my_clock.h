@@ -49,10 +49,16 @@ void *__my_clock_counting(void *my_clock);
 /////////////////////////////////////////
 
 // Allocates memory for a new 'my_clock_t' pointer and initializes values.
+//
+// Returns a newly allocated (my_clock_t *) on success.
+// Returns (NULL) otherwise.
 my_clock_t *my_clock_create(void);
 
-// Starts a given 'my_clock'.
-void my_clock_start(my_clock_t *my_clock);
+// Starts a given 'my_clock' to count.
+//
+// Returns (1) on success.
+// Returns (0) otherwise.
+int my_clock_start(my_clock_t *my_clock);
 
 // Updates extern-usable variables data values to the reable.
 //

@@ -14,7 +14,7 @@ Test(my_clock_start, logic_time_on_both_threads)
     int offset = 0;
 
     cr_assert_neq(clock, NULL);
-    my_clock_start(clock);
+    cr_expect(my_clock_start(clock));
     offset += sleep(3);
     cr_expect_eq(clock->hours, 0);
     cr_expect_eq(clock->minutes, 0);
@@ -27,7 +27,7 @@ Test(my_clock_start, zero_seconds_passed)
     my_clock_t *clock = my_clock_create();
 
     cr_assert_neq(clock, NULL);
-    my_clock_start(clock);
+    cr_expect(my_clock_start(clock));
     cr_expect_eq(clock->hours, 0);
     cr_expect_eq(clock->minutes, 0);
     cr_expect_eq(clock->seconds, 0);
@@ -40,7 +40,7 @@ Test(my_clock_start, null_given)
     int offset = 0;
 
     cr_assert_neq(clock, NULL);
-    my_clock_start(NULL);
+    cr_expect_neq(my_clock_start(NULL), 1);
     offset += sleep(3);
     cr_expect_eq(clock->hours, 0);
     cr_expect_eq(clock->minutes, 0);
