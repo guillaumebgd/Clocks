@@ -2,7 +2,7 @@
 
 # My Clock - C Library
 
-A little C library that allows you to launch clocks alongside the main track of your project to implement time.<br>
+A little C library that allows you to launch clocks alongside the main track of your project.<br>
 
 Clocks are launched on different detached threads and this library wraps thread processings.<br>
 
