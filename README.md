@@ -84,7 +84,7 @@ Defreezes a given <code>my_clock</code>'s counter.<br>
 void my_clock_restart(my_clock_t *my_clock);
 ```
 
-Resets __*timer variables*__ of a given <code>my_clock</code> to <code>0</code> and then
+Resets the __*timer variables*__ of a given <code>my_clock</code> to <code>0</code> and then
 defreezes a given <code>my_clock</code>'s counter.<br>
 
 ---
