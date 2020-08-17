@@ -28,7 +28,7 @@ The only important variables of the data structure, as a user of the library, ar
 * <code>atomic_ullong hours;</code>
 
 After launching a clock alongside your main track, the timer will be constantly updating
-packs of 60 <code>seconds</code> of packs of <code>minutes</code> and packs of 60 <code>minutes</code> to packs of <code>hours</code>.
+stacks of 60 <code>seconds</code> to <code>minutes</code> and stacks of 60 <code>minutes</code> to <code>hours</code>.
 
 ---
 
