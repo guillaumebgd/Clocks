@@ -1,8 +1,17 @@
+####################
+# Project Specific #
+####################
+
 # VS Code
-.vscode
+.vscode/
 
 # Binaries
 debug
+unit_tests
+
+##############
+# C Specific #
+##############
 
 # Prerequisites
 *.d

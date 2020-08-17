@@ -1,5 +1,5 @@
 /*
-// Solo Project C Library
+// Solo Project - C Library
 // My_clock_C_Library
 // File description:
 // Allocates basic data for a 'my_clock'.

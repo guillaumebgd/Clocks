@@ -13,6 +13,8 @@ void *__my_clock_counting(void *data)
 {
     my_clock_t *my_clock = (my_clock_t *)data;
 
+    if (!data)
+        pthread_exit(NULL);
     pthread_detach(my_clock->assigned_thread);
     do {
         my_clock->seconds += 1;
