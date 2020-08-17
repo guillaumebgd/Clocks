@@ -49,8 +49,8 @@ Starts the counter of a given initialized <code>my_clock</code> onto a new detac
 The __*timer variables*__ will start incrementing as <code>seconds</code> pass and
 increment <code>minutes</code> and <code>hours</code> when needed.<br>
 
-Returns (1) on success.<br>
-Returns (0) on failure.<br>
+Returns (<code>1</code>) on success.<br>
+Returns (<code>0</code>) on failure.<br>
 
 ---
 
