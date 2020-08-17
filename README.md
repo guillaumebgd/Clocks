@@ -46,8 +46,8 @@ void my_clock_start(my_clock_t *my_clock);
 ```
 
 Starts the counter of a given initialized <code>my_clock</code> onto a new detached thread.<br>
-The __*timer variables*__ will start increasing as <code>seconds</code> go by and
-automatically increase <code>minutes</code> and <code>hours</code> when needed.<br>
+The __*timer variables*__ will start incrementing as <code>seconds</code> go by and
+incrementing <code>minutes</code> and <code>hours</code> when needed.<br>
 
 ---
 
