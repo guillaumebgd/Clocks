@@ -42,12 +42,15 @@ Initializes the __*timer variables*__ and to <code>0</code>.<br>
 ---
 
 ```C
-void my_clock_start(my_clock_t *my_clock);
+int my_clock_start(my_clock_t *my_clock);
 ```
 
 Starts the counter of a given initialized <code>my_clock</code> onto a new detached thread.<br>
 The __*timer variables*__ will start incrementing as <code>seconds</code> pass and
 increment <code>minutes</code> and <code>hours</code> when needed.<br>
+
+Returns (<code>1</code>) on success.<br>
+Returns (<code>0</code>) on failure.<br>
 
 ---
 
