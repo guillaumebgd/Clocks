@@ -43,7 +43,7 @@ all:	$(NAME)
 
 $(NAME):	$(OBJ)
 	$(AR) rc $(NAME) $(OBJ)
-	$(MV) $(NAME) ../
+	$(MV) $(NAME) $(LIB_DIR_PATH)
 
 debug:
 	$(CC) -g -o $(ROOT_DIR_PATH)$@ $(MAIN) $(SRC) $(CPPFLAGS) -lpthread
