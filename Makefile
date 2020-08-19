@@ -5,9 +5,7 @@
 ## Makefile use for DCLL_C_library compilation
 ##
 
-SRC_LIBMYCLOCK	=	lib/my_clock/	\
-
-NAME_LIBMYCLOCK	=	-lmyclock	\
+SRC_LIBMYCLOCK	=	lib/my_clock/
 
 all:
 	$(MAKE) -C $(SRC_LIBMYCLOCK)
@@ -18,7 +16,7 @@ debug:
 tests_run:
 	@find -name "*.gcda" -delete
 	@find -name "*.gcno" -delete
-	$(MAKE) tests_run -C $(SRC_LIBMYCLOCK)
+	-$(MAKE) tests_run -C $(SRC_LIBMYCLOCK)
 	find -name "test_*.gcda" -delete
 	find -name "test_*.gcno" -delete
 
