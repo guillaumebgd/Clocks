@@ -8,7 +8,7 @@ Clocks are launched on different detached threads and this library wraps thread 
 
 ## Table of Contents
 
-To work with clocks, you will need to use the structure below. (defined at <code>include/clock/clock.h:32</code>)<br>
+To work with clocks, you will need to use the structure below. (defined at <code>include/clocks/clocks.h:32</code>)<br>
 
 ```C
 typedef struct s_clock {
@@ -23,9 +23,9 @@ typedef struct s_clock {
 
 The only important variables of the data structure, as a user of the library, are the __*timer variables*__:<br>
 
-* <code>atomic_uint seconds</code> (This variable is an <code>unsigned int</code>.)
-* <code>atomic_uint minutes</code> (This variable is an <code>unsigned int</code>.)
-* <code>atomic_ullong hours</code> (This variable is a <code>long long unsigned int</code>.)
+* <code>_Atomic unsigned int seconds</code> (This variable is an <code>unsigned int</code>.)
+* <code>_Atomic unsigned int minutes</code> (This variable is an <code>unsigned int</code>.)
+* <code>_Atomic unsigned long long hours</code> (This variable is a <code>long long unsigned int</code>.)
 
 After launching a clock alongside your main track, the timer will be constantly updating
 stacks of 60 <code>seconds</code> to <code>minutes</code> and stacks of 60 <code>minutes</code> to <code>hours</code>.
@@ -89,7 +89,7 @@ void clock_restart(t_clock *clock);
 ```
 
 Resets the __*timer variables*__ of a given <code>clock</code> to <code>0</code> and then
-defreezes a given <code>clock</code>'s counter.<br>
+unfreezes a given <code>clock</code>'s counter.<br>
 
 ---
 
