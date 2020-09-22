@@ -1,6 +1,6 @@
 ***
 
-# My Clock - C Library
+# Clocks - C Library
 
 A little C library that allows you to launch clocks alongside the main track of your project.<br>
 
