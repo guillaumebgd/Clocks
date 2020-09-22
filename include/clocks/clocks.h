@@ -28,7 +28,6 @@
 // - seconds
 // - minutes
 // - hours
-#include <stdio.h>
 typedef struct s_clock {
     _Atomic unsigned char communicator;
     pthread_t assigned_thread;

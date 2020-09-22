@@ -1,6 +1,6 @@
 ***
 
-# Clocks - C Library
+# My Clock - C Library
 
 A little C library that allows you to launch clocks alongside the main track of your project.<br>
 
@@ -8,17 +8,17 @@ Clocks are launched on different detached threads and this library wraps thread 
 
 ## Table of Contents
 
-To work with clocks, you will need to use the structure below. (defined at <code>include/my_clock/my_clock.h:32</code>)<br>
+To work with clocks, you will need to use the structure below. (defined at <code>include/clock/clock.h:32</code>)<br>
 
 ```C
-typedef struct my_clock_s {
-    atomic_char communicator;
+typedef struct s_clock {
+    _Atomic unsigned char communicator;
     pthread_t assigned_thread;
     pthread_attr_t thread_attr;
-    atomic_uint seconds;
-    atomic_uint minutes;
-    atomic_ullong hours;
-} my_t_clock;
+    _Atomic unsigned int seconds;
+    _Atomic unsigned int minutes;
+    _Atomic unsigned long long hours;
+} t_clock;
 ```
 
 The only important variables of the data structure, as a user of the library, are the __*timer variables*__:<br>
@@ -33,19 +33,19 @@ stacks of 60 <code>seconds</code> to <code>minutes</code> and stacks of 60 <code
 ---
 
 ```C
-my_t_clock *my_clock_create(void);
+t_clock *clock_create(void);
 ```
 
-Allocates memory for a new pointer onto a <code>my_clock</code>.<br>
+Allocates memory for a new pointer onto a <code>clock</code>.<br>
 Initializes the __*timer variables*__ and to <code>0</code>.<br>
 
 ---
 
 ```C
-int my_clock_start(my_t_clock *my_clock);
+int clock_start(t_clock *clock);
 ```
 
-Starts the counter of a given initialized <code>my_clock</code> onto a new detached thread.<br>
+Starts the counter of a given initialized <code>clock</code> onto a new detached thread.<br>
 The __*timer variables*__ will start incrementing as <code>seconds</code> pass and
 increment <code>minutes</code> and <code>hours</code> when needed.<br>
 
@@ -55,7 +55,7 @@ Returns (<code>0</code>) on failure.<br>
 ---
 
 ```C
-void my_clock_update(my_t_clock *my_clock);
+void clock_update(t_clock *clock);
 ```
 
 Redistributes the overflow of time stored in <code>seconds</code> and in <code>minutes</code>
@@ -67,37 +67,37 @@ That amount of time can be stored into the higher storage variable.<br>
 ---
 
 ```C
-void my_clock_stop(my_t_clock *my_clock);
+void clock_stop(t_clock *clock);
 ```
 
-Freezes a given <code>my_clock</code>'s counter.<br>
-It can be brought back to normal by using the <code>my_clock_continue</code> or the <code>my_clock_restart</code> functions.
+Freezes a given <code>clock</code>'s counter.<br>
+It can be brought back to normal by using the <code>clock_continue</code> or the <code>clock_restart</code> functions.
 
 ---
 
 ```C
-void my_clock_continue(my_t_clock *my_clock);
+void clock_continue(t_clock *clock);
 ```
 
-A <code>my_clock</code>'s counter can be frozen using the <code>my_clock_stop</code> function.<br>
-Defreezes a given <code>my_clock</code>'s counter.<br>
+A <code>clock</code>'s counter can be frozen using the <code>clock_stop</code> function.<br>
+Unfreezes a given <code>clock</code>'s counter.<br>
 
 ---
 
 ```C
-void my_clock_restart(my_t_clock *my_clock);
+void clock_restart(t_clock *clock);
 ```
 
-Resets the __*timer variables*__ of a given <code>my_clock</code> to <code>0</code> and then
-defreezes a given <code>my_clock</code>'s counter.<br>
+Resets the __*timer variables*__ of a given <code>clock</code> to <code>0</code> and then
+defreezes a given <code>clock</code>'s counter.<br>
 
 ---
 
 ```C
-void my_clock_destroy(my_t_clock *my_clock);
+void clock_destroy(t_clock *clock);
 ```
 
-Frees allocated memory given to a <code>my_clock</code> and its thread.<br>
+Frees allocated memory given to a <code>clock</code> and its thread.<br>
 
 ---
 
