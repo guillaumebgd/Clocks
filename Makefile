@@ -1,22 +1,22 @@
 ##
-## Duo Project C Library
-## DCLL_C_Library
+## Solo Project - C Library
+## Clocks
 ## File description:
-## Makefile use for DCLL_C_library compilation
+## Makefile use for Clocks compilation
 ##
 
-SRC_LIBMYCLOCK	=	lib/my_clock/
+SRC_LIBCLOCKS	=	lib/clocks/
 
 all:
-	$(MAKE) -C $(SRC_LIBMYCLOCK)
+	$(MAKE) -C $(SRC_LIBCLOCKS)
 
 debug:
-	$(MAKE) debug -C $(SRC_LIBMYCLOCK)
+	$(MAKE) debug -C $(SRC_LIBCLOCKS)
 
 tests_run:
 	@find -name "*.gcda" -delete
 	@find -name "*.gcno" -delete
-	-$(MAKE) tests_run -C $(SRC_LIBMYCLOCK)
+	-$(MAKE) tests_run -C $(SRC_LIBCLOCKS)
 	find -name "test_*.gcda" -delete
 	find -name "test_*.gcno" -delete
 
@@ -31,10 +31,10 @@ clean:
 	$(RM) -rf $(TEST_COVERAGE_DIR)
 	@find -name "*.gcda" -delete
 	@find -name "*.gcno" -delete
-	$(MAKE) clean -C $(SRC_LIBMYCLOCK)
+	$(MAKE) clean -C $(SRC_LIBCLOCKS)
 
 fclean: clean
-	$(MAKE) fclean -C $(SRC_LIBMYCLOCK)
+	$(MAKE) fclean -C $(SRC_LIBCLOCKS)
 
 re:	fclean all
 

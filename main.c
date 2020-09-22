@@ -1,11 +1,11 @@
 /*
 // Solo Project - C Library
-// My_clock_C_Library
+// clock_C_Library
 // File description:
-// Tester main function for debugging or testing of the my_clock library through '$ make debug'.
+// Tester main function for debugging or testing of the clock library through '$ make debug'.
 */
 
-#include "my_clock.h"
+#include "clocks.h"
 
 int main(void)
 {
