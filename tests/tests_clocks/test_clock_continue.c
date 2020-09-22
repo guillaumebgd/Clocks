@@ -1,6 +1,6 @@
 /*
 // Solo Project - C Library
-// clock_C_Library
+// Clocks
 // File description:
 // Tests the clock_continue() function.
 */
