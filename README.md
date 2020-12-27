@@ -8,7 +8,7 @@ Clocks are launched on different detached threads and this library wraps thread 
 
 ## Table of Contents
 
-To work with clocks, you will need to use the structure below. (defined at <code>include/clocks/clocks.h:32</code>)<br>
+To work with clocks, you will need to use the structure below. (defined at <code>include/clocks/clocks.h:31</code>)<br>
 
 ```C
 typedef struct s_clock {
