@@ -21,14 +21,10 @@ typedef struct s_clock {
 } t_clock;
 ```
 
-The only important variables of the data structure, as a user of the library, are the __*timer variables*__:<br>
+The only important variables of the data structure, as a user of the library, are the hours, minutes and seconds.
 
-* <code>_Atomic unsigned int seconds</code> (This variable is an <code>unsigned int</code>.)
-* <code>_Atomic unsigned int minutes</code> (This variable is an <code>unsigned int</code>.)
-* <code>_Atomic unsigned long long hours</code> (This variable is a <code>long long unsigned int</code>.)
-
-After launching a clock alongside your main track, the timer will be constantly updating
-stacks of 60 <code>seconds</code> to <code>minutes</code> and stacks of 60 <code>minutes</code> to <code>hours</code>.
+After launching a clock alongside your the main track of your program, the timer will be constantly update
+seconds by seconds. At the same time, it will update stacks of 60 seconds to minutes and stacks of 60 minutes to hours.
 
 ---
 
@@ -36,8 +32,11 @@ stacks of 60 <code>seconds</code> to <code>minutes</code> and stacks of 60 <code
 t_clock *clock_create(void);
 ```
 
-Allocates memory for a new pointer onto a <code>clock</code>.<br>
-Initializes the __*timer variables*__ and to <code>0</code>.<br>
+Allocates memory for a new pointer to a <code>t_clock</code>.<br>
+Initializes the __*timer variables*__ to <code>0</code>.<br>
+
+Returns a newly allocated address on success.<br>
+Returns <code>NULL</code> on failure.<br>
 
 ---
 
@@ -45,8 +44,8 @@ Initializes the __*timer variables*__ and to <code>0</code>.<br>
 int clock_start(t_clock *clock);
 ```
 
-Starts the counter of a given initialized <code>clock</code> onto a new detached thread.<br>
-The __*timer variables*__ will start incrementing as <code>seconds</code> pass and
+Starts the counter of a given initialized <code>t_clock</code> onto a new detached thread.<br>
+The __*timer variables*__ will start updating as <code>seconds</code> pass and
 increment <code>minutes</code> and <code>hours</code> when needed.<br>
 
 Returns (<code>1</code>) on success.<br>
@@ -64,14 +63,16 @@ respectively to <code>minutes</code> and to <code>hours</code>.<br>
 The overflow of time describes the excess above <code>60 seconds</code> or <code>60 minutes</code>.<br>
 That amount of time can be stored into the higher storage variable.<br>
 
+*This function is automatically called by the thread of a launched <code>t_clock</code>.*
+
 ---
 
 ```C
 void clock_stop(t_clock *clock);
 ```
 
-Freezes a given <code>clock</code>'s counter.<br>
-It can be brought back to normal by using the <code>clock_continue</code> or the <code>clock_restart</code> functions.
+Freezes a given <code>t_clock</code>'s counter.<br>
+It can be unfrozen using the <code>clock_continue</code> or the <code>clock_restart</code> functions.
 
 ---
 
@@ -88,7 +89,7 @@ Unfreezes a given <code>clock</code>'s counter.<br>
 void clock_restart(t_clock *clock);
 ```
 
-Resets the __*timer variables*__ of a given <code>clock</code> to <code>0</code> and then
+Resets the __*timer variables*__ of a given <code>t_clock</code> to <code>0</code> and then
 unfreezes a given <code>clock</code>'s counter.<br>
 
 ---
@@ -97,7 +98,7 @@ unfreezes a given <code>clock</code>'s counter.<br>
 void clock_destroy(t_clock *clock);
 ```
 
-Frees allocated memory given to a <code>clock</code> and its thread.<br>
+Frees allocated memory given to a <code>t_clock</code> and its thread.<br>
 
 ---
 
